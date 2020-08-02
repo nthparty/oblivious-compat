@@ -6,13 +6,14 @@ language: python
 python:
   - "3.8"
 cache: pip
-before_install:
-  - sudo apt-get -y install libsodium-dev
 install:
-  - grep libsodium
-  - ls /usr/lib
-  - ldconfig -p | grep libsodium
-  - sudo ldconfig
+  - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
+  - tar xvfz libsodium-1.0.18.tar.gz
+  - cd libsodium-1.0.18
+  - ./configure --prefix=/usr/lib/libsodium
+  - make
+  - make install
+  - cd ..
   - pip install pylint
   - pip install coveralls
   - pip install .
