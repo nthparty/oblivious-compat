@@ -1,2 +1,0 @@
-# oblivious-compat
-Compatibility tests.
