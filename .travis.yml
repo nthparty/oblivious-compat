@@ -10,7 +10,7 @@ install:
   - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
   - tar xvfz libsodium-1.0.18.tar.gz
   - cd libsodium-1.0.18
-  - ./configure --prefix=/usr/lib/libsodium
+  - ./configure --prefix=/usr/lib
   - sudo make
   - sudo make install
   - cd ..
