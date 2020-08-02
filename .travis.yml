@@ -10,6 +10,8 @@ cache: pip
 before_install:
   - sudo apt-get -y install libsodium-dev
 install:
+  - ldconfig -p | grep libsodium
+  - sudo ldconfig
   - pip install pylint
   - pip install coveralls
   - pip install .
