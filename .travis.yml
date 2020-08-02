@@ -11,8 +11,8 @@ install:
   - tar xvfz libsodium-1.0.18.tar.gz
   - cd libsodium-1.0.18
   - ./configure --prefix=/usr/lib/libsodium
-  - make
-  - make install
+  - sudo make
+  - sudo make install
   - cd ..
   - pip install pylint
   - pip install coveralls
