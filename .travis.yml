@@ -8,8 +8,8 @@ python:
   - "3.8"
 cache: pip
 install:
-  - wget https://github.com/jedisct1/libsodium/archive/1.0.18.tar.gz
-  - tar xvfz 1.0.18.tar.gz
+  - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
+  - tar xvfz libsodium-1.0.18.tar.gz
   - cd libsodium-1.0.18
   - ./configure --prefix=$HOME/libsodium
   - make
