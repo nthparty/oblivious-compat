@@ -1,3 +1,5 @@
+import ctypes
+import ctypes.util
 from parts import parts
 from bitlist import bitlist
 from fountains import fountains
