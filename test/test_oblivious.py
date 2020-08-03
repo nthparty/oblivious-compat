@@ -19,7 +19,7 @@ def check_or_generate_operation(self, fun, lengths, bits):
 
 class Test_oblivious(TestCase):
     def test_1(self):
-        l = ctypes.cdll.LoadLibrary(ctypes.util.find_library('sodium'))
+        l = ctypes.util.find_library('sodium')
         self.assertTrue(l is not None)
 
     def test_2(self):
