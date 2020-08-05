@@ -18,6 +18,7 @@ matrix:
         - sudo make
         - sudo make install
         - cd ..
+        - python -m pip install setuptools
         - python -m pip install nose
         - python -m pip install .
 script:
