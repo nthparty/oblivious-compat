@@ -18,8 +18,8 @@ matrix:
         - sudo make
         - sudo make install
         - cd ..
-        - python -m pip install setuptools
-        - python -m pip install nose
-        - python -m pip install .
+        - sudo python -m pip install setuptools
+        - sudo python -m pip install nose
+        - sudo python -m pip install .
 script:
   - nosetests
