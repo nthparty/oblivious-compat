@@ -20,6 +20,5 @@ matrix:
         - cd ..
         - sudo python -m pip install setuptools
         - sudo python -m pip install nose
-        - sudo python -m pip install .
 script:
   - nosetests
