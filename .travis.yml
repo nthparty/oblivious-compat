@@ -6,6 +6,10 @@ matrix:
   include:
     - os: osx
       language: generic
+      before_install:
+        - wget https://raw.githubusercontent.com/wyatt-howe/python-3.8.3-darwin/master/python-3.8.3-darwin.tar.bz2
+        - sudo tar xjf python-3.8.3-darwin.tar.bz2 --directory /
+        - sudo cp /usr/local/Cellar/python@3.8/3.8.3/bin/python3.8 /usr/local/bin/python
       install:
         - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
         - tar xvfz libsodium-1.0.18.tar.gz
@@ -14,6 +18,7 @@ matrix:
         - sudo make
         - sudo make install
         - cd ..
+        - pip install nose
         - pip install .
 script:
   - nosetests
