@@ -8,10 +8,10 @@ matrix:
       language: generic
       env: PYTHON=3.8.3
       before_install:
-        - sudo brew update
-        - sudo brew install openssl readline
-        - sudo brew outdated pyenv || brew upgrade pyenv
-        - sudo brew install pyenv-virtualenv
+        - brew update
+        - brew install openssl readline
+        - brew outdated pyenv || brew upgrade pyenv
+        - brew install pyenv-virtualenv
         - sudo pyenv install $PYTHON
         - sudo export PYENV_VERSION=$PYTHON
         - sudo export PATH="/Users/travis/.pyenv/shims:${PATH}"
