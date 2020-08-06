@@ -23,7 +23,7 @@ matrix:
         - export PYENV_VERSION=$PYTHON
         - export PATH="/Users/travis/.pyenv/shims:${PATH}"
         - sudo pyenv virtualenv 3.8.3 venv
-        - sudo python --version
+        - sudo python3.8 --version
       install:
         - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
         - tar xvfz libsodium-1.0.18.tar.gz
