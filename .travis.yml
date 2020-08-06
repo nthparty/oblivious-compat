@@ -19,6 +19,8 @@ matrix:
         - export PYENV_VERSION=$PYTHON
         - export PATH="/Users/travis/.pyenv/shims:${PATH}"
         - sudo pyenv virtualenv venv
+        - ls venv
+        - ls venv/bin
         - source venv/bin/activate
         - sudo python --version
       cache:
