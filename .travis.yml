@@ -7,7 +7,7 @@ matrix:
     - os: osx
       language: generic
       before_install:
-        - wget https://raw.githubusercontent.com/wyatt-howe/python-3.8.3-darwin/master/python-3.8.3-darwin.tar.bz2
+        - wget https://github.com/actions/python-versions/releases/download/3.8.3-20200603.38/python-3.8.3-darwin-x64.tar.gz
         - sudo tar xjf python-3.8.3-darwin.tar.bz2 --directory /
         - sudo cp /usr/local/Cellar/python@3.8/3.8.3/bin/python3.8 /usr/local/bin/python
       install:
