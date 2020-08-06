@@ -9,10 +9,6 @@ matrix:
       before_cache:
         - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then brew cleanup; fi
         - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then find /usr/local/Homebrew \! -regex ".+\.git.+" -delete; fi
-      cache:
-        directories:
-          - $HOME/Library/Caches/Homebrew
-          - /usr/local/Homebrew
       env: PYTHON=3.8.3
       before_install:
         - brew update
@@ -22,9 +18,13 @@ matrix:
         - sudo pyenv install $PYTHON
         - export PYENV_VERSION=$PYTHON
         - export PATH="/Users/travis/.pyenv/shims:${PATH}"
-        - sudo pyenv virtualenv
+        - sudo pyenv virtualenv venv
         - sudo source venv/bin/activate
         - sudo python --version
+      cache:
+        directories:
+          - $HOME/Library/Caches/Homebrew
+          - /usr/local/Homebrew
       install:
         - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
         - tar xvfz libsodium-1.0.18.tar.gz
