@@ -15,5 +15,7 @@ matrix:
         - pip install nose
         - pip install coveralls
         - pip install .
+        - echo $PATH
+        - echo %path%
 script:
   - nosetests
