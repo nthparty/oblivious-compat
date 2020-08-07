@@ -10,7 +10,9 @@ matrix:
         - choco install python --version=3.8.3
         - wget https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18-msvc.zip
         - unzip libsodium-1.0.18-msvc.zip
+        - ls
         - cp libsodium-1.0.18-msvc/libsodium/Win32/Release/v142/dynamic/libsodium.dll /usr/bin
+        - cp ./libsodium.dll /usr/bin
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
       install:
         - pip install pylint
