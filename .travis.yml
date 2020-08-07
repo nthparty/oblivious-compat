@@ -4,6 +4,53 @@ notifications:
     on_failure: never
 matrix:
   include:
+    - os: linux
+      language: python
+      python:
+        - "3.8"
+      before_install:
+        - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
+        - tar xvfz libsodium-1.0.18.tar.gz
+        - cd libsodium-1.0.18
+        - sudo ./configure
+        - sudo make
+        - sudo make install
+        - sudo ldconfig
+        - cd ..
+      install:
+        - pip install pylint
+        - pip install nose
+        - pip install coveralls
+        - pip install .
+    - os: osx
+      language: generic
+      before_cache:
+        - brew cleanup
+        - find /usr/local/Homebrew \! -regex ".+\.git.+" -delete
+      cache:
+        ccache: true
+        directories:
+          - $HOME/Library/Caches/Homebrew
+          - /usr/local/Homebrew
+      env: PYTHON=3.8.3
+      before_install:
+        - brew update
+        - brew install libsodium
+        - brew install ccache
+        - brew install openssl readline
+        - brew outdated pyenv || brew upgrade pyenv
+        - brew install pyenv-virtualenv
+        - sudo pyenv install $PYTHON
+        - export PYENV_VERSION=$PYTHON
+        - export PATH="/Users/travis/.pyenv/shims:${PATH}"
+        - sudo pyenv virtualenv 3.8.3 venv
+        - sudo python3.8 -m pip install -U pip
+        - sudo python3.8 -m pip install setuptools
+      install:
+        - sudo python3.8 -m pip install pylint
+        - sudo python3.8 -m pip install nose
+        - sudo python3.8 -m pip install coveralls
+        - sudo python3.8 -m pip install .
     - os: windows
       language: sh
       before_install:
