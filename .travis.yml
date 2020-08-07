@@ -4,6 +4,20 @@ notifications:
     on_failure: never
 matrix:
   include:
+    - os: linux
+      language: python
+      python:
+        - "3.8"
+      install:
+        - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz
+        - tar xvfz libsodium-1.0.18.tar.gz
+        - cd libsodium-1.0.18
+        - sudo ./configure
+        - sudo make
+        - sudo make install
+        - sudo ldconfig
+        - cd ..
+        - pip install .
     - os: osx
       language: generic
       before_cache:
