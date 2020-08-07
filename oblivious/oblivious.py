@@ -8,6 +8,7 @@ from __future__ import annotations
 import doctest
 import ctypes
 import ctypes.util
+import platform
 import secrets
 import ge25519
 
@@ -133,9 +134,14 @@ sub = native.sub
 #
 
 try:
-    _sodium =\
-        ctypes.cdll.LoadLibrary(ctypes.util.find_library('sodium') or\
-        ctypes.util.find_library('libsodium'))
+    if platform.system() == 'Windows':
+        _sodium =\
+            ctypes.windll.LoadLibrary(ctypes.util.find_library('sodium') or\
+            ctypes.util.find_library('libsodium'))
+    else:
+        _sodium =\
+            ctypes.cdll.LoadLibrary(ctypes.util.find_library('sodium') or\
+            ctypes.util.find_library('libsodium'))
 
     # Ensure the detected version of libsodium has the necessary primitives.
     assert hasattr(_sodium, 'crypto_box_secretkeybytes')
